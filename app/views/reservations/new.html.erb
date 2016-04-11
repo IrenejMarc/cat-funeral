@@ -1,0 +1,20 @@
+<h1>Book a reservation</h1>
+
+<%= form_for :reservation, url: reservations_path do |f| %>
+    <% if @error %>
+        <div style="color:red">
+          <%= @error %>
+        </div>
+    <% end %>
+  <p>
+    <%= f.label :name, "Your cat's name" %>
+    <%= f.text_field :name %>
+
+  <p>
+    <%= f.label :starts_at %>
+    <%= f.datetime_select :starts_at, :value => @reservation.starts_at %>
+    <small>Funeral will last 2 hours</small>
+
+  <p>
+    <%= f.submit 'Submit' %>
+<% end %>

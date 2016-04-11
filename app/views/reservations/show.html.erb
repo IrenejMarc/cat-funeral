@@ -1,0 +1,8 @@
+<h1>In memory of <%= @reservation.name %></h1>
+<p>
+  He/she/it was a good cat. RIP in peace, <%= @reservation.name %>
+
+<p>
+  The funeral will begin on the day of <%= @reservation.starts_at.strftime('%d %B %Y') %>
+  at exactly <%= @reservation.starts_at.strftime('%H:%M') %>, and will end two hours later, at
+<%= @reservation.ends_at.strftime('%H:%M') %>. Be ready.

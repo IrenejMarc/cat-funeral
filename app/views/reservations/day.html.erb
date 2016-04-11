@@ -1,0 +1,28 @@
+<h1>Reservations on <%= @date.strftime('%d %B %Y') %></h1>
+
+<% if @reservations.any? %>
+  <% @reservations.each do |reservation| %>
+      <h3><%= link_to reservation.name, reservation_path(reservation) %></h3>
+      <p>
+        Starts: <%= reservation.starts_at.strftime('%H:%M:%S') %>
+      <p>
+        Ends: <%= reservation.ends_at.strftime('%H:%M:%S') %>
+  <% end %>
+<% else %>
+    There are no reservations today. Book in the next 20 minutes and get a 20% off coupon.
+<% end %>
+
+<h2>Weather</h2>
+<% if @weather %>
+    <p>Min temperature: <%= @weather['temp']['min'] %>
+    <p>Max temperature: <%= @weather['temp']['max']%>
+
+    <% @weather['weather'].each do |weather| %>
+      <p>Weather: <%= weather['description'] %>
+    <% end %>
+<% else %>
+    No weather data for this day (yet, or maybe never).
+<% end %>
+
+<h2>Booking</h2>
+  <%= link_to 'BOOK', new_reservation_path({:date => @date}) %>

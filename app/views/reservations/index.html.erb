@@ -1,0 +1,13 @@
+<h1>Reservations</h1>
+
+<%= month_calendar do |date| %>
+    <div class="day">
+      <p>
+        <%= date %>
+      <p>
+        <% today = @reservations.select { |res| res.day == date.day} %>
+        <%= link_to day_reservations_path(:day => date) do %>
+          <%= pluralize today.length, 'reservations' %>
+        <% end %>
+    </div>
+<% end %>
