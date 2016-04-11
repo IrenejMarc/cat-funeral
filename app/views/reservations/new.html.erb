@@ -1,9 +1,9 @@
 <h1>Book a reservation</h1>
 
 <%= form_for :reservation, url: reservations_path do |f| %>
-    <% if @error %>
+    <% @reservation.errors.full_messages.each do |error| %>
         <div style="color:red">
-          <%= @error %>
+          <%= error %>
         </div>
     <% end %>
   <p>

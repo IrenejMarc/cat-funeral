@@ -7,21 +7,20 @@
 default: &default
   adapter: postgresql
   host: localhost
-  username: user
+  username: dlabs
+  password:
 
 development:
   <<: *default
-  database: app-dev
-
-development:
+  database: app_dev
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: app-test
+  database: app_test
 
 production:
   <<: *default
-  database: app-prod
+  database: app_prod
