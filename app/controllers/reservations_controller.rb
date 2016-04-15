@@ -40,7 +40,7 @@ class ReservationsController < ApplicationController
   def day
     @date = Date.parse params[:day]
     @reservations = Reservation.where(year: @date.year, month: @date.month, day: @date.day).order :starts_at
-    @weather = FetchWeather.call(@date)
+    @weather = FetchWeather.for_day @date
   end
 
   private

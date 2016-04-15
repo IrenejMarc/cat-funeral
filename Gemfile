@@ -49,3 +49,4 @@ end
 gem 'bcrypt'
 gem "simple_calendar", "~> 2.0"
 gem 'open-weather'
+gem 'rails_12factor', group: :production
